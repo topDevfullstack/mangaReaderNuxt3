@@ -40,7 +40,7 @@ const createPageLink = (page: number): RouteLocationRaw => {
 			<ShortArticlesSection :data="allArticles" :pending="pending" :error="error" :handle-create-page-link="createPageLink" />
 		</main>
 
-		<Aside class="col-4 q-pl-lg" />
+		<!-- <Aside class="col-4 q-pl-lg" /> -->
 	</div>
 </template>
 
