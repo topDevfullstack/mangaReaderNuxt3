@@ -5,11 +5,12 @@ import { fasChevronLeft, fasChevronRight } from '@quasar/extras/fontawesome-v5';
 <template>
 	<q-header reveal class="bg-dark text-white no-border" :class="$style.header">
 		<q-toolbar>
-			<q-avatar square size="48px">
+			<!-- <q-avatar square size="48px">
 				<NuxtLink to="/" class="block full-width full-height">
 					<img src="~/assets/images/logo.png" width="48" height="48" alt="Realworld Logo" />
 				</NuxtLink>
-			</q-avatar>
+			</q-avatar> -->
+			<span>LOGO</span>
 
 			<nav class="nav-wrapper relative-position self-stretch q-px-md" role="navigation">
 				<q-tabs class="q-px-xs" :right-icon="fasChevronRight" :left-icon="fasChevronLeft">
@@ -22,7 +23,7 @@ import { fasChevronLeft, fasChevronRight } from '@quasar/extras/fontawesome-v5';
 			</nav>
 
 			<div class="search-wrapper q-px-lg col-grow">
-				<q-input filled dense borderless dark model-value="" name="search" type="text" inputmode="text" placeholder="Explore...">
+				<q-input filled dense borderless model-value="" name="search" type="text" inputmode="text">
 					<template #prepend>
 						<SearchIcon />
 					</template>
@@ -47,7 +48,7 @@ import { fasChevronLeft, fasChevronRight } from '@quasar/extras/fontawesome-v5';
 
 <style lang="scss" module>
 .header {
-	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+	// box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 	flex: 0 0 auto;
 
 	:global {
@@ -66,42 +67,10 @@ import { fasChevronLeft, fasChevronRight } from '@quasar/extras/fontawesome-v5';
 
 		.q-input {
 			max-width: 320px;
+			background-color: white;
 		} // .q-input
 	} // :global
 } // .header
-
-.navWrapper {
-	:global {
-		.q-tabs {
-			height: 115%;
-			background: linear-gradient(152.9deg, #77a6dc 0.44%, #585ef5 100%);
-			border-radius: 10px;
-		}
-
-		.q-icon {
-			svg {
-				max-height: 27px;
-			}
-		}
-
-		.q-tabs__content {
-			justify-content: center;
-		}
-
-		.q-tab {
-			padding: 0 22px;
-			margin: 0 6px;
-			opacity: 1;
-			flex-grow: 0;
-			text-transform: none;
-		}
-
-		.q-tab__label {
-			font-size: 1.1rem;
-			font-weight: 600;
-		}
-	} // :global
-} // .navWrapper
 
 .buttonGroup {
 	:global {
