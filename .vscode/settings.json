@@ -1,9 +1,9 @@
 {
 	"files.autoSave": "off",
 	"editor.codeActionsOnSave": {
-		"source.fixAll": false,
-		"source.fixAll.eslint": true, // this allows ESLint to auto fix on save
-		"source.organizeImports": true
+		"source.fixAll": "never",
+		"source.fixAll.eslint": "explicit",
+		"source.organizeImports": "explicit"
 	},
 	"workbench.iconTheme": "material-icon-theme",
 	"files.insertFinalNewline": true,
