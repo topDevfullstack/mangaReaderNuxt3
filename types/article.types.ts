@@ -3,6 +3,7 @@ import { LocationQueryValue } from '~/.nuxt/vue-router';
 export interface Article {
 	_id: string;
 	baseUrl: string;
+	hash: string;
 	data: string[];
 	dataSaver: string[];
 	chapter: {

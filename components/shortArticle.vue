@@ -6,6 +6,7 @@ const props = defineProps<Article>();
 <template>
 	<q-card tag="article" :class="$style.article">
 		<q-card-section class="q-pa-lg">
+			<img :src="`${props.baseUrl}/data-saver/${props.hash}/${props.dataSaver[0].split('-')[1]}`" alt="pic" />
 			<p class="text-h6 text-weight-light">{{ props.chapter.manga.title }}</p>
 
 			<footer class="q-pt-lg flex row items-center justify-between">

@@ -41,7 +41,9 @@ const page = computed(() => {
 
 	<template v-if="props.data && !props.pending">
 		<template v-if="props.data.downs.length !== 0">
-			<ShortArticle v-for="(item, index) in props.data.downs" :key="index" v-bind="item" />
+			<div class="row">
+				<ShortArticle v-for="(item, index) in props.data.downs" :key="index" class="col-3" v-bind="item" />
+			</div>
 
 			<div v-if="page?.current && page.total" class="q-pt-lg">
 				<Pagination :current-page="page.current" :total-page="page.total" :handle-page-link="props.handleCreatePageLink" />
