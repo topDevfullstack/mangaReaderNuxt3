@@ -1,26 +1,33 @@
 import { LocationQueryValue } from '~/.nuxt/vue-router';
 
 export interface Article {
-	slug: string;
-	title: string;
-	description: string;
-	body: string;
-	tagList: string[];
-	createdAt: string;
-	updatedAt: string;
-	favorited: boolean;
-	favoritesCount: number;
-	author: {
-		username: string;
-		bio: string;
-		image: string;
-		following: boolean;
+	_id: string;
+	baseUrl: string;
+	data: string[];
+	dataSaver: string[];
+	chapter: {
+		_id: string;
+		id: string;
+		type: string;
+		title: string;
+		manga: {
+			_id: string;
+			id: string;
+			type: string;
+			title: string;
+			createdAt: string;
+			updatedAt: string;
+			__v: number;
+		};
+		createdAt: string;
+		updatedAt: string;
+		__v: number;
 	};
 }
 
 export interface AllArticles {
-	articles: Article[];
-	articlesCount: number;
+	downs: Article[];
+	downsCounts: number;
 }
 
 export interface GetAllArticlesProps {

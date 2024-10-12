@@ -6,22 +6,11 @@ const props = defineProps<Article>();
 <template>
 	<q-card tag="article" :class="$style.article">
 		<q-card-section class="q-pa-lg">
-			<header>
-				<h1 class="text-h5">
-					<NuxtLink :to="`/article/${props.slug}`" class="text-white">{{ props.title }} </NuxtLink>
-				</h1>
-
-				<div class="flex row items-center justify-between q-py-md q-mb-sm">
-					<Avatar :avatar-src="props.author.image" :username="props.author.username" :date="props.createdAt" />
-					<Like :favorites-count="props.favoritesCount" :is-favorited="props.favorited" :slug="props.slug" />
-				</div>
-			</header>
-
-			<p class="text-h6 text-weight-light">{{ props.description }}</p>
+			<p class="text-h6 text-weight-light">{{ props.chapter.manga.title }}</p>
 
 			<footer class="q-pt-lg flex row items-center justify-between">
-				<BtnMore :href="`/article/${props.slug}`" />
-				<ArticleTags :tag-list="props.tagList" class="q-pl-lg" />
+				<BtnMore :href="`/article/${props._id}`" />
+				<!-- <ArticleTags :tag-list="props.tagList" class="q-pl-lg" /> -->
 			</footer>
 		</q-card-section>
 	</q-card>

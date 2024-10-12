@@ -19,9 +19,9 @@ const route = useRoute();
 const props = defineProps<IProps>();
 
 const page = computed(() => {
-	if (!props.data?.articles) return;
+	if (!props.data?.downs) return;
 
-	const articlesCount = props.data.articlesCount;
+	const articlesCount = props.data.downsCounts;
 	const query = route.query as Record<string, LocationQueryValue>;
 	const pageNumber = (route.params.pageNumber || query.page || '1') as string;
 
@@ -40,8 +40,8 @@ const page = computed(() => {
 	<Spinner v-if="props.pending" />
 
 	<template v-if="props.data && !props.pending">
-		<template v-if="props.data.articles.length !== 0">
-			<ShortArticle v-for="(item, index) in props.data.articles" :key="index" v-bind="item" />
+		<template v-if="props.data.downs.length !== 0">
+			<ShortArticle v-for="(item, index) in props.data.downs" :key="index" v-bind="item" />
 
 			<div v-if="page?.current && page.total" class="q-pt-lg">
 				<Pagination :current-page="page.current" :total-page="page.total" :handle-page-link="props.handleCreatePageLink" />
@@ -50,7 +50,7 @@ const page = computed(() => {
 
 		<ErrorBox v-else msg="Information has not been found" :error="error" type="info">
 			<q-btn
-				v-if="props.data.articles.length === 0 && props.data.articlesCount !== 0"
+				v-if="props.data.downs.length === 0 && props.data.downsCounts !== 0"
 				no-caps
 				color="primary"
 				label="Redirect To Page 1"

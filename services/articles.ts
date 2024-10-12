@@ -14,7 +14,7 @@ interface GetAllArticlesProps {
 }
 
 export const getAllArticles = (queries: ComputedRef<GetAllArticlesProps>, server = true) => {
-	return useAPI<AllArticles>('/articles', {
+	return useAPI<AllArticles>('/db/list', {
 		query: queries,
 		watch: [queries],
 		server,
