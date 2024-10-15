@@ -23,9 +23,9 @@ const props = defineProps<Article>();
 	box-shadow: 10px 10px 0px rgba(2, 2, 2, 0.45);
 	border-radius: 15px;
 
-	& + .article {
-		margin-top: 2.5rem;
-	}
+	// & + .article {
+	margin: 0 1.5rem 2.5rem 0;
+	// }
 
 	:global {
 		h1 {

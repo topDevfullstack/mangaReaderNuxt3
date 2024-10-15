@@ -7,12 +7,18 @@ const { data, error } = await getPopularTags();
 
 <template>
 	<aside :class="$style.aside">
+		<h4 class="q-pb-md flex row no-wrap justify-between items-center">
+			<span class="shrink">Trending</span>
+		</h4>
+		<div class="row">
+			<input id="html" type="radio" name="fav_language" value="HTML" />
+			<label for="html">Today</label>
+			<input id="css" type="radio" name="fav_language" value="CSS" />
+			<label for="css">Week</label>
+			<input id="javascript" type="radio" name="fav_language" value="JavaScript" />
+			<label for="javascript">Monthly</label>
+		</div>
 		<section :class="$style.popularTags">
-			<h6 class="q-pb-md flex row no-wrap justify-between items-center">
-				<span class="shrink">Popular Tags</span>
-				<MedalIcon />
-			</h6>
-
 			<div v-if="data && data.tags" class="flex row wrap q-gutter-sm">
 				<q-btn
 					v-for="(item, index) in data.tags"

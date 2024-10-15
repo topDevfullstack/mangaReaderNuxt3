@@ -41,8 +41,11 @@ const page = computed(() => {
 
 	<template v-if="props.data && !props.pending">
 		<template v-if="props.data.downs.length !== 0">
+			<h4 class="q-pb-md flex row no-wrap justify-between items-center">
+				<span class="shrink">Latest Updates</span>
+			</h4>
 			<div class="row">
-				<ShortArticle v-for="(item, index) in props.data.downs" :key="index" class="col-4" v-bind="item" />
+				<ShortArticle v-for="(item, index) in props.data.downs" :key="index" class="col-3" v-bind="item" />
 			</div>
 
 			<div v-if="page?.current && page.total" class="q-pt-lg">
