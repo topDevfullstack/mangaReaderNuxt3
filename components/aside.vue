@@ -1,8 +1,29 @@
 <script setup lang="ts">
-import { fasHashtag } from '@quasar/extras/fontawesome-v5';
 import { getPopularTags } from '~/services';
 
-const { data, error } = await getPopularTags();
+import { ref } from 'vue';
+import RadioButton from './RadioButton.vue';
+
+// const { data, error } = await getPopularTags();
+
+// Define your reactive state variables
+const selected = ref(null);
+const options = [
+	{ value: 'today', label: 'Today' },
+	{ value: 'week', label: 'Week' },
+	{ value: 'monthly', label: 'Monthly' },
+];
+const radioName = 'my-radio-group';
+
+// If you have an asynchronous method, you can define a setup function
+// Example for fetching data:
+async function fetchData() {
+	const { data, error } = await getPopularTags();
+	// Handle your fetched data or error accordingly
+}
+
+// Call the async function if needed
+fetchData();
 </script>
 
 <template>
@@ -11,14 +32,17 @@ const { data, error } = await getPopularTags();
 			<span class="shrink">Trending</span>
 		</h4>
 		<div class="row">
-			<input id="html" type="radio" name="fav_language" value="HTML" />
-			<label for="html">Today</label>
-			<input id="css" type="radio" name="fav_language" value="CSS" />
-			<label for="css">Week</label>
-			<input id="javascript" type="radio" name="fav_language" value="JavaScript" />
-			<label for="javascript">Monthly</label>
+			<RadioButton
+				v-for="option in options"
+				:key="option.value"
+				v-model="selected"
+				:name="radioName"
+				:value="option.value"
+				:label="option.label"
+				class="col-3"
+			/>
 		</div>
-		<section :class="$style.popularTags">
+		<!-- <section :class="$style.popularTags">
 			<div v-if="data && data.tags" class="flex row wrap q-gutter-sm">
 				<q-btn
 					v-for="(item, index) in data.tags"
@@ -37,12 +61,16 @@ const { data, error } = await getPopularTags();
 			</div>
 
 			<ErrorBox v-else :error="error" :msg="error?.message" />
-		</section>
+		</section> -->
 	</aside>
 </template>
 
 <style lang="scss" module>
 .aside {
+	& > div {
+		justify-content: space-between;
+	}
+
 	& > section {
 		background-color: #33394f;
 		padding: 1rem;
