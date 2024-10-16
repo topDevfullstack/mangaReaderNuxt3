@@ -47,11 +47,11 @@ const emitChange = () => {
 	color: #fff;
 	cursor: pointer;
 	transition: background-color 0.3s, color 0.3s;
+}
 
-	& .is-selected {
-		background-color: #9c4b4b;
-		color: #fff;
-	}
+.radio-button.is-selected {
+	background-color: #9c4b4b;
+	color: #fff;
 }
 
 .radio-label {

@@ -4,26 +4,16 @@ import { getPopularTags } from '~/services';
 import { ref } from 'vue';
 import RadioButton from './RadioButton.vue';
 
-// const { data, error } = await getPopularTags();
+const { data, error } = await getPopularTags();
 
 // Define your reactive state variables
-const selected = ref(null);
+const selected = ref('today');
 const options = [
 	{ value: 'today', label: 'Today' },
 	{ value: 'week', label: 'Week' },
 	{ value: 'monthly', label: 'Monthly' },
 ];
 const radioName = 'my-radio-group';
-
-// If you have an asynchronous method, you can define a setup function
-// Example for fetching data:
-async function fetchData() {
-	const { data, error } = await getPopularTags();
-	// Handle your fetched data or error accordingly
-}
-
-// Call the async function if needed
-fetchData();
 </script>
 
 <template>
