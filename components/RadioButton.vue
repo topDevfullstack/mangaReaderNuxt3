@@ -33,6 +33,7 @@ const isSelected = computed(() => props.modelValue === props.value);
 
 const emitChange = () => {
 	emit('update:modelValue', props.value);
+	emit('radio-selected', props.value);
 };
 </script>
 

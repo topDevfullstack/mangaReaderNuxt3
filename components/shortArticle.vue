@@ -2,7 +2,7 @@
 import { Article } from '~/types';
 
 const props = defineProps<Article>();
-console.log(props);
+// console.log(props);
 </script>
 <template>
 	<q-card tag="article" :class="$style.article">

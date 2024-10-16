@@ -37,14 +37,14 @@ export const getArticlesFeed = () => {
 		};
 	});
 
-	return useAPI<AllArticles>('/articles/feed', {
+	return useAPI<AllArticles>('/db/list/feed', {
 		query: queries,
 		watch: [queries],
 	});
 };
 
-export const getSingleArticle = (slug: string) => {
-	return useAPI<{ article: Article }>(`/articles/${slug}`);
+export const getSingleArticle = (_id: string) => {
+	return useAPI<{ article: Article }>(`/db/list/${_id}`);
 };
 
 export const createNewArticle = (data: NewArticle) => {

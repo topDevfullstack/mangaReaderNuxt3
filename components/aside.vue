@@ -4,7 +4,8 @@ import { getPopularTags } from '~/services';
 import { ref } from 'vue';
 import RadioButton from './RadioButton.vue';
 
-const { data, error } = await getPopularTags();
+const { data, error } = await getPopularTags('today');
+// console.log(data, error);
 
 // Define your reactive state variables
 const selected = ref('today');
@@ -14,6 +15,10 @@ const options = [
 	{ value: 'monthly', label: 'Monthly' },
 ];
 const radioName = 'my-radio-group';
+
+const radioSelected = async (value) => {
+	const { data, error } = await getPopularTags(value);
+};
 </script>
 
 <template>
@@ -30,6 +35,7 @@ const radioName = 'my-radio-group';
 				:value="option.value"
 				:label="option.label"
 				class="col-3"
+				@radio-selected="radioSelected"
 			/>
 		</div>
 		<!-- <section :class="$style.popularTags">

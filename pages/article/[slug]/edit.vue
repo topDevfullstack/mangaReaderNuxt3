@@ -14,11 +14,11 @@ definePageMeta({
 			const route = useRoute();
 
 			const auth = authState();
-			const { data } = await getSingleArticle(route.params.slug as string);
+			const { data } = await getSingleArticle(route.params._id as string);
 
 			if (!data || !data.value) return '/';
 
-			if (auth.get.value?.username !== data.value?.article.author.username) return '/';
+			if (auth.get.value?.username !== data.value?.article.chapter.manga.type) return '/';
 		},
 	],
 });
@@ -26,16 +26,16 @@ definePageMeta({
 const route = useRoute();
 const isLoading = ref(false);
 
-const slug = computed(() => {
-	return route.params.slug as string;
+const _id = computed(() => {
+	return route.params._id as string;
 });
 
-const { data } = await getSingleArticle(slug.value);
+const { data } = await getSingleArticle(_id.value);
 
 const handleSubmitForm = (newData: Ref<NewArticle>) => {
 	isLoading.value = true;
 
-	return updateArticle(slug.value, newData.value)
+	return updateArticle(_id.value, newData.value)
 		.then((res) => {
 			const resData = res.data.value;
 			const error = res.error.value;
@@ -46,7 +46,7 @@ const handleSubmitForm = (newData: Ref<NewArticle>) => {
 					type: 'success',
 				});
 
-				navigateTo(`/article/${resData.slug}`);
+				navigateTo(`/db/list/${resData._id}`);
 			}
 
 			if (error) {
@@ -81,10 +81,9 @@ const handleSubmitForm = (newData: Ref<NewArticle>) => {
 
 	<AddArticle
 		:loading="isLoading"
-		:body="data?.article.body"
-		:description="data?.article.description"
-		:tag-list="data?.article.tagList"
-		:title="data?.article.title"
+		:body="data?.article.chapter.manga.attributes.title.en"
+		:description="data?.article.chapter.manga.attributes.description.en"
+		:title="data?.article.chapter.manga.attributes.title.en"
 		@on-submit="handleSubmitForm"
 	/>
 </template>
