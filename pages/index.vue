@@ -35,6 +35,11 @@ const createPageLink = (page: number): RouteLocationRaw => {
 </script>
 
 <template>
+	<div class="row flex" :class="$style.justify">
+		<div v-for="(item, index) in allArticles.downs" :key="index" class="col-2">
+			<img v-if="index < 5" :src="item.dataSaver[0].split('-')[1]" alt="fsda" />
+		</div>
+	</div>
 	<div class="flex row q-gutter-x-lg">
 		<main class="col" :class="$style.main">
 			<ShortArticlesSection :data="allArticles" :pending="pending" :error="error" :handle-create-page-link="createPageLink" />
@@ -45,6 +50,12 @@ const createPageLink = (page: number): RouteLocationRaw => {
 </template>
 
 <style lang="scss" module>
+.justify {
+	:global {
+		justify-content: space-between;
+	}
+}
+
 .main {
 	:global {
 		.q-tabs__content {

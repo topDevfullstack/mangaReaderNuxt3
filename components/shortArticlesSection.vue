@@ -44,7 +44,8 @@ const page = computed(() => {
 			<h4 class="q-pb-md flex row no-wrap justify-between items-center">
 				<span class="shrink">Latest Updates</span>
 			</h4>
-			<div class="row">
+
+			<div class="row flex">
 				<ShortArticle v-for="(item, index) in props.data.downs" :key="index" class="col-3" v-bind="item" />
 			</div>
 
