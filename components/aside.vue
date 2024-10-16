@@ -1,10 +1,17 @@
 <script setup lang="ts">
-import { getPopularTags } from '~/services';
-
+import { type FetchError } from 'ofetch';
 import { ref } from 'vue';
+import { getPopularTags } from '~/services';
+import { AllArticles } from '~/types';
 import RadioButton from './RadioButton.vue';
 
-const { data, error } = await getPopularTags('today');
+interface IProps {
+	data: AllArticles | null | undefined;
+	error: FetchError<unknown> | null | undefined;
+	pending: boolean;
+}
+
+const { data, error } = await getPopularTags<IProps>('today');
 // console.log(data, error);
 
 // Define your reactive state variables
@@ -17,7 +24,8 @@ const options = [
 const radioName = 'my-radio-group';
 
 const radioSelected = async (value) => {
-	const { data, error } = await getPopularTags(value);
+	const { data, error } = await getPopularTags<IProps>(value);
+	// console.log(data, error);
 };
 </script>
 
@@ -38,26 +46,13 @@ const radioSelected = async (value) => {
 				@radio-selected="radioSelected"
 			/>
 		</div>
-		<!-- <section :class="$style.popularTags">
-			<div v-if="data && data.tags" class="flex row wrap q-gutter-sm">
-				<q-btn
-					v-for="(item, index) in data.tags"
-					:key="index"
-					rounded
-					no-caps
-					unelevated
-					size="md"
-					color="dark"
-					text-color="white"
-					:label="item"
-					:icon="fasHashtag"
-					class="text-weight-regular"
-					:to="`/?tag=${item}`"
-				/>
+		<section :class="$style.popularTags">
+			<div v-if="data && data.downs" class="q-gutter-sm">
+				<ArticleTags size="md" color="dark" text-color="white" class="text-weight-regular col-12" :data="data" />
 			</div>
 
 			<ErrorBox v-else :error="error" :msg="error?.message" />
-		</section> -->
+		</section>
 	</aside>
 </template>
 
@@ -71,6 +66,7 @@ const radioSelected = async (value) => {
 		background-color: #33394f;
 		padding: 1rem;
 		border-radius: 10px;
+		margin-top: 15px;
 	} // & > section
 } // .aside
 .popularTags {

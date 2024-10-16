@@ -43,6 +43,10 @@ import { fasChevronLeft, fasChevronRight } from '@quasar/extras/fontawesome-v5';
 				</q-btn>
 			</div>
 		</q-toolbar>
+
+		<div class="p-5">
+			<img src="~/assets/images/header-img.png" alt="" />
+		</div>
 	</q-header>
 </template>
 
@@ -63,6 +67,12 @@ import { fasChevronLeft, fasChevronRight } from '@quasar/extras/fontawesome-v5';
 		h1,
 		h2 {
 			line-height: 1.25rem;
+		}
+
+		img {
+			width: 95vw;
+			height: 45vh;
+			margin: 15px;
 		}
 
 		.q-input {
