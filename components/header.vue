@@ -15,10 +15,10 @@ import { fasChevronLeft, fasChevronRight } from '@quasar/extras/fontawesome-v5';
 			<nav class="nav-wrapper relative-position self-stretch q-px-md" role="navigation">
 				<q-tabs class="q-px-xs" :right-icon="fasChevronRight" :left-icon="fasChevronLeft">
 					<q-route-tab label="All" to="/" exact />
-					<q-route-tab label="Action" to="/action" exact />
-					<q-route-tab label="Love Story" to="/love" exact />
-					<q-route-tab label="Adventure" to="/adventure" exact />
-					<q-route-tab label="Most Popular" to="/popular" exact />
+					<q-route-tab label="Action" to="/contact" exact />
+					<q-route-tab label="Love Story" to="/about" exact />
+					<q-route-tab label="Adventure" to="/contact" exact />
+					<q-route-tab label="Most Popular" to="/contact" exact />
 				</q-tabs>
 			</nav>
 

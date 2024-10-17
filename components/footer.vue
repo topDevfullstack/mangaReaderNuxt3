@@ -19,7 +19,7 @@ footer {
 	height: 0.4rem;
 
 	& > div {
-		background-image: url('~/assets/images/logo.png');
+		background-image: url('~/assets/images/footer-img.png');
 		background-repeat: no-repeat;
 		background-size: 100% 100%;
 
