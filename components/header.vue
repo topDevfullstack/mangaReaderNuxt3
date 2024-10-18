@@ -35,7 +35,7 @@ import { fasChevronLeft, fasChevronRight } from '@quasar/extras/fontawesome-v5';
 					flat
 					rounded
 					class="github-btn"
-					href="https://github.com/MR-Mostafa/nuxt3-realworld-example-app"
+					href="https://github.com/topDevfullstack/nuxt3-realworld-example-app"
 					target="_blank"
 					rel="noopener noreferrer"
 				>
